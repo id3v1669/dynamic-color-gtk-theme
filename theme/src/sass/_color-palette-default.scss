@@ -1,77 +1,77 @@
 // Tokyonight Default Theme Color Palette
 
 // Red
-$red-light: #f52a65;
-$red-dark: #f7768e;
+$red-light: **base0A**;
+$red-dark: **base09**;
 
 // Pink
-$pink-light: #d20065;
-$pink-dark: #ff007c;
+$pink-light: **base1F**;
+$pink-dark: **base1E**;
 
 // Purple
-$purple-light: #7847bd;
-$purple-dark: #bb9af7;
+$purple-light: **base1C**;
+$purple-dark: **base1B**;
 
 // Blue
-$blue-light: #2e7de9;
-$blue-dark: #7aa2f7;
+$blue-light: **base19**;
+$blue-dark: **base18**;
 
 // Teal
-$teal-light: #118c74;
-$teal-dark: #1abc9c;
+$teal-light: mix(**base17**, **base11**,60%);
+$teal-dark: lighten(mix(**base17**, **base11**,60%), 10%);
 
 // Cyan
-$cyan-light: #007197;
-$cyan-dark: #7dcfff;
+$cyan-light: **base16**;
+$cyan-dark: **base15**;
 
 // Green
-$green-light: #387068;
-$green-dark: #73daca;
+$green-light: **base13**;
+$green-dark: **base12**;
 
 // Yellow
-$yellow-light: #8c6c3e;
-$yellow-dark: #e0af68;
+$yellow-light: **base10**;
+$yellow-dark: **base0F**;
 
 // Orange
-$orange-light: #b15c00;
-$orange-dark: #ff9e64;
+$orange-light: **base0D**;
+$orange-dark: **base0C**;
 
 // Accent Color
-$accent-light: #006a83;
-$accent-dark: #27a1b9;
+$accent-light: **accent02**;
+$accent-dark: **accent01**;
 
 // Grey
-$grey-050: #e9e9ed;
-$grey-100: #e1e2e7;
-$grey-150: #d2d2da;
-$grey-200: #c7c7d1;
-$grey-250: #bcbcc8;
-$grey-300: #b6b8cd;
-$grey-350: #aaacc5;
-$grey-400: #a9b1d6;
-$grey-450: #848cb5;
-$grey-500: #737aa2;
-$grey-550: #545c7e;
-$grey-600: #414868;
-$grey-650: #3b4261;
-$grey-700: #323449;
-$grey-750: #292e42;
-$grey-800: #1f2231;
-$grey-850: #1a1b26;
-$grey-900: #15161e;
-$grey-950: #111118;
+$grey-050: **base01**;
+$grey-100: darken(**base01**, 5%);
+$grey-150: **base00**;
+$grey-200: darken(**base00**, 5%);
+$grey-250: lighten(**base02**, 5%);
+$grey-300: **base02**;
+$grey-350: darken(**base02**, 5%);
+$grey-400: **base03**;
+$grey-450: darken(**base03**, 5%);
+$grey-500: lighten(**base05**, 5%);
+$grey-550: **base05**;
+$grey-600: darken(**base05**, 5%);
+$grey-650: lighten(**base04**, 5%);
+$grey-700: **base04**;
+$grey-750: darken(**base04**, 5%);
+$grey-800: lighten(**base06**, 5%);
+$grey-850: **base06**;
+$grey-900: lighten(**base07**, 5%);
+$grey-950: **base07**;
 
 // White
-$white: #e9e9ed;
+$white: **base01**;
 
 // Black
-$black: #1a1b26;
+$black: **base06**;
 
 // Theme
 $default-light: $accent-light;
 $default-dark: $accent-dark;
 
 // Button
-$button-close: if($topbar == 'light', #c64343, #f7768e);
-$button-max: if($topbar == 'light', #587539, #9ece6a);
-$button-min: if($topbar == 'light', #8c6c3e, #ff9e64);
+$button-close: if($topbar == 'light', **base0A**, **base09**);
+$button-max: if($topbar == 'light', **base12**, **base12**);
+$button-min: if($topbar == 'light', **base0D**, **base0C**);

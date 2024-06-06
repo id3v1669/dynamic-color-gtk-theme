@@ -6,7 +6,7 @@ base03: "bdae93" # fg-dark-alt
 base04: "3c3836" # bg
 base05: "504945" # bg-light
 base06: "282828" # bg-dark
-base07: "665c54" # bg-dark-alt
+base07: "202020" # bg-dark-alt
 base08: "cc241d" # red
 base09: "d13933" # red-light
 base0A: "a31c17" # red-dark

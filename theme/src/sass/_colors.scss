@@ -93,25 +93,9 @@
 
 @function theme($color) {
 	@if ($variant == 'light') {
-		@if ($theme == 'default') { @return $default-light; }
-		@if ($theme == 'purple')  { @return $purple-light; }
-		@if ($theme == 'pink')    { @return $pink-light; }
-		@if ($theme == 'red')     { @return $red-light; }
-		@if ($theme == 'orange')  { @return $orange-light; }
-		@if ($theme == 'yellow')  { @return $yellow-light; }
-		@if ($theme == 'green')   { @return $green-light; }
-		@if ($theme == 'teal')    { @return $teal-light; }
-		@if ($theme == 'grey')    { @return $grey-200; }
+		@return $default-light;
 	} @else {
-		@if ($theme == 'default') { @return $default-dark; }
-		@if ($theme == 'purple')  { @return $purple-dark; }
-		@if ($theme == 'pink')    { @return $pink-dark; }
-		@if ($theme == 'red')     { @return $red-dark; }
-		@if ($theme == 'orange')  { @return $orange-dark; }
-		@if ($theme == 'yellow')  { @return $yellow-dark; }
-		@if ($theme == 'green')   { @return $green-dark; }
-		@if ($theme == 'teal')    { @return $teal-dark; }
-		@if ($theme == 'grey')    { @return $grey-600; }
+		@return $default-dark;
 	}
 }
 
