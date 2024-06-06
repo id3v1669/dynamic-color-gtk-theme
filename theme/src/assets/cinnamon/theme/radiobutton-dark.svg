@@ -29,13 +29,13 @@
   </defs>
   <sodipodi:namedview
      id="namedview1782"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
+     pagecolor="**base01**"
+     bordercolor="**base07**"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
+     inkscape:deskcolor="**base00**"
      showgrid="false"
      inkscape:zoom="9.8333333"
      inkscape:cx="12.050847"
@@ -51,21 +51,21 @@
      cx="12"
      cy="13"
      r="10"
-     style="opacity:0.25;fill:#000000;fill-opacity:1;filter:url(#filter1250)" />
+     style="opacity:0.25;fill:**base07**;fill-opacity:1;filter:url(#filter1250)" />
   <circle
      id="path291"
      cx="12"
      cy="12"
      r="10"
-     style="fill:#27a1b9;fill-opacity:1" />
+     style="fill:**accent01**;fill-opacity:1" />
   <circle
      id="path675"
      cx="12"
      cy="12"
      r="3"
-     style="fill:#1a1b26;stroke-width:1.2;fill-opacity:1" />
+     style="fill:**base06**;stroke-width:1.2;fill-opacity:1" />
   <path
      id="circle689"
-     style="opacity:0.1;fill:#ffffff;fill-opacity:1"
+     style="opacity:0.1;fill:**base01**;fill-opacity:1"
      d="M 12,2 A 10,10 0 0 0 2,12 10,10 0 0 0 2.0351562,12.5 10,10 0 0 1 12,3 10,10 0 0 1 21.976562,12.341797 10,10 0 0 0 22,12 10,10 0 0 0 12,2 Z" />
 </svg>

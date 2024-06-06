@@ -28,8 +28,8 @@
   <defs
      id="defs8" />
   <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
+     pagecolor="**base01**"
+     bordercolor="**base05**"
      borderopacity="1"
      objecttolerance="10"
      gridtolerance="10"
@@ -49,8 +49,8 @@
      inkscape:current-layer="svg4" />
   <path
      d="M6 3v10l5-5z"
-     fill="#000000"
+     fill="**base07**"
      opacity="0.54"
      id="path2"
-     style="fill:#e6e6e6" />
+     style="fill:**base01**" />
 </svg>

@@ -14,8 +14,8 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview19"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
+     pagecolor="**base01**"
+     bordercolor="**base05**"
      borderopacity="1.0"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -35,7 +35,7 @@
     <linearGradient
        id="color-primary-dark">
       <stop
-         stop-color="#1A73E8"
+         stop-color="**accent01**"
          offset="1"
          id="stop2" />
     </linearGradient>
@@ -48,6 +48,6 @@
   </defs>
   <path
      d="m 12,20.485281 -4.2426407,-4.24264 a 6,6 0 1 1 8.4852817,0 z"
-     fill="#000000"
+     fill="**base07**"
      id="path10" />
 </svg>

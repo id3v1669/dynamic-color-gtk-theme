@@ -3,7 +3,7 @@
    width="16"
    height="16"
    viewBox="0 0 16 16"
-   fill="#808080"
+   fill="**base03**"
    version="1.1"
    id="svg4"
    sodipodi:docname="unmaximize.svg"
@@ -29,8 +29,8 @@
   <defs
      id="defs8" />
   <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
+     pagecolor="**base01**"
+     bordercolor="**base05**"
      borderopacity="1"
      objecttolerance="10"
      gridtolerance="10"

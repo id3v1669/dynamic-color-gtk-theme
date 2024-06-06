@@ -41,13 +41,13 @@
   </defs>
   <sodipodi:namedview
      id="namedview10"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
+     pagecolor="**base01**"
+     bordercolor="**base07**"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
+     inkscape:deskcolor="**base00**"
      showgrid="true"
      inkscape:zoom="3.337544"
      inkscape:cx="19.025966"
@@ -76,7 +76,7 @@
      y="6"
      rx="8"
      ry="8"
-     style="fill:#000000;fill-opacity:1;filter:url(#filter1168);opacity:0.25" />
+     style="fill:**base07**;fill-opacity:1;filter:url(#filter1168);opacity:0.25" />
   <rect
      id="rect342"
      width="75"
@@ -85,27 +85,27 @@
      y="5"
      rx="8"
      ry="8"
-     style="fill:#006a83;fill-opacity:1" />
+     style="fill:**accent02**;fill-opacity:1" />
   <path
      d="m 18,95 c -0.554,0 -1,0.446 -1,1 v 4 h -4 c -0.554,0 -1,0.446 -1,1 0,0.554 0.446,1 1,1 h 4 v 4 c 0,0.554 0.446,1 1,1 0.554,0 1,-0.446 1,-1 v -4 h 4 c 0.554,0 1,-0.446 1,-1 0,-0.554 -0.446,-1 -1,-1 h -4 v -4 c 0,-0.554 -0.446,-1 -1,-1 z m 8,6 a 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 8,8 0 0 1 8,8 z"
-     color="#000000"
+     color="**base07**"
      color-rendering="auto"
-     fill="#ffffff"
+     fill="**base01**"
      image-rendering="auto"
-     solid-color="#000000"
-     style="isolation:auto;mix-blend-mode:normal;shape-rendering:auto;fill:#000000;filter:url(#filter1174);opacity:0.15"
+     solid-color="**base07**"
+     style="isolation:auto;mix-blend-mode:normal;shape-rendering:auto;fill:**base07**;filter:url(#filter1174);opacity:0.15"
      id="path1172" />
   <path
      d="m 18,94 c -0.554,0 -1,0.446 -1,1 v 4 h -4 c -0.554,0 -1,0.446 -1,1 0,0.554 0.446,1 1,1 h 4 v 4 c 0,0.554 0.446,1 1,1 0.554,0 1,-0.446 1,-1 v -4 h 4 c 0.554,0 1,-0.446 1,-1 0,-0.554 -0.446,-1 -1,-1 h -4 v -4 c 0,-0.554 -0.446,-1 -1,-1 z m 8,6 a 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 8,8 0 0 1 8,8 z"
-     color="#000000"
+     color="**base07**"
      color-rendering="auto"
-     fill="#ffffff"
+     fill="**base01**"
      image-rendering="auto"
-     solid-color="#000000"
+     solid-color="**base07**"
      style="isolation:auto;mix-blend-mode:normal;shape-rendering:auto"
      id="path4" />
   <path
      id="rect607"
-     style="fill:#ffffff;fill-opacity:1;opacity:0.1"
+     style="fill:**base01**;fill-opacity:1;opacity:0.1"
      d="M 13 5 C 8.5680044 5 5 8.5680044 5 13 L 5 14 C 5 9.5680044 8.5680044 6 13 6 L 72 6 C 76.431996 6 80 9.5680044 80 14 L 80 13 C 80 8.5680044 76.431996 5 72 5 L 13 5 z " />
 </svg>

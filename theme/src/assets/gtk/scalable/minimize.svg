@@ -15,8 +15,8 @@
      id="defs5" />
   <sodipodi:namedview
      id="namedview6"
-     pagecolor="#424242"
-     bordercolor="#666666"
+     pagecolor="**base05**"
+     bordercolor="**base05**"
      borderopacity="1.0"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
@@ -39,5 +39,5 @@
      rx="0.5"
      ry="0.5"
      id="rect2932"
-     style="fill:#ffffff" />
+     style="fill:**base01**" />
 </svg>

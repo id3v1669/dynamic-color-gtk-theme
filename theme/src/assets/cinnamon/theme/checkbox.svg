@@ -29,13 +29,13 @@
   </defs>
   <sodipodi:namedview
      id="namedview441"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
+     pagecolor="**base01**"
+     bordercolor="**base07**"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
+     inkscape:deskcolor="**base00**"
      showgrid="true"
      inkscape:zoom="6.9532167"
      inkscape:cx="-4.0988223"
@@ -57,7 +57,7 @@
        visible="true" />
   </sodipodi:namedview>
   <rect
-     style="opacity:0.25;fill:#000000;fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1446)"
+     style="opacity:0.25;fill:**base07**;fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1446)"
      id="rect890"
      width="20"
      height="20"
@@ -66,7 +66,7 @@
      rx="4"
      ry="4" />
   <rect
-     style="opacity:1;fill:#006a83;fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+     style="opacity:1;fill:**accent02**;fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
      id="rect616"
      width="20"
      height="20"
@@ -77,9 +77,9 @@
   <path
      id="rect340"
      d="m 18.36396,7.7576861 c -0.391736,-0.3917365 -1.022477,-0.3917368 -1.414214,0 L 10.585785,14.121648 7.0502516,10.586113 c -0.3917367,-0.391737 -1.0224771,-0.391736 -1.4142135,0 -0.3917365,0.391736 -0.3917368,1.022477 0,1.414214 l 4.2426409,4.242641 c 0.02448,0.02448 0.04973,0.04625 0.07596,0.06767 0.393511,0.321347 0.971002,0.299581 1.338255,-0.06767 l 7.071068,-7.0710684 c 0.391737,-0.3917367 0.391736,-1.0224771 0,-1.4142135 z"
-     style="fill:#ffffff" />
+     style="fill:**base01**" />
   <path
      id="rect885"
-     style="opacity:0.1;fill:#ffffff;fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+     style="opacity:0.1;fill:**base01**;fill-opacity:1;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
      d="M 6 2 C 3.7840022 2 2 3.7840022 2 6 L 2 7 C 2 4.7840022 3.7840022 3 6 3 L 18 3 C 20.215998 3 22 4.7840022 22 7 L 22 6 C 22 3.7840022 20.215998 2 18 2 L 6 2 z " />
 </svg>

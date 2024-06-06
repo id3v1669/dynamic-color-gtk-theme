@@ -46,8 +46,8 @@
   <defs
      id="defs10" />
   <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
+     pagecolor="**base01**"
+     bordercolor="**base05**"
      borderopacity="1"
      objecttolerance="10"
      gridtolerance="10"
@@ -78,5 +78,5 @@
      id="path6"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="sccccccccsccsssssccccc"
-     style="fill:#111111;fill-opacity:1;opacity:0.54" />
+     style="fill:**base07**;fill-opacity:1;opacity:0.54" />
 </svg>

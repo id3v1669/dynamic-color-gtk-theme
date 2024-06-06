@@ -26,8 +26,8 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
+     pagecolor="**base01**"
+     bordercolor="**base05**"
      borderopacity="1"
      objecttolerance="10"
      gridtolerance="10"
@@ -49,7 +49,7 @@
      inkscape:current-layer="svg120"
      inkscape:pagecheckerboard="0"
      inkscape:showpageshadow="2"
-     inkscape:deskcolor="#d1d1d1">
+     inkscape:deskcolor="**base00**">
     <inkscape:grid
        type="xygrid"
        id="grid1085" />
@@ -73,7 +73,7 @@
        clipPathUnits="userSpaceOnUse"
        id="clipPath2484">
       <rect
-         style="fill:#e6e6e6;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
+         style="fill:**base01**;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
          id="rect2486"
          width="26.458666"
          height="8.466773"
@@ -84,7 +84,7 @@
   <g
      id="thumbnail-dark">
     <rect
-       style="fill:#1a1a1a;fill-opacity:1;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
+       style="fill:**base07**;fill-opacity:1;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
        id="rect2499"
        width="26.458666"
        height="8.466773"
@@ -95,7 +95,7 @@
        clip-path="url(#clipPath2484)"
        transform="translate(0,14.28768)">
       <rect
-         style="opacity:1;fill:#000000;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
+         style="opacity:1;fill:**base07**;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
          id="rect2501"
          width="30.427467"
          height="11.9064"
@@ -104,7 +104,7 @@
          rx="3.17504"
          ry="3.17504" />
       <rect
-         style="fill:#2c2c2c;fill-opacity:1;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:**base06**;fill-opacity:1;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round"
          id="rect2505"
          width="30.427467"
          height="11.9064"
@@ -114,35 +114,35 @@
          ry="3.17504" />
       <path
          id="path2507"
-         style="opacity:0.1;fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         style="opacity:0.1;fill:**base01**;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
          d="M 16,29 C 9.352,29 4,34.352 4,41 v 1 C 4,35.352 9.352,30 16,30 h 91 c 6.648,0 12,5.352 12,12 v -1 c 0,-6.648 -5.352,-12 -12,-12 z"
          transform="matrix(0.26458667,0,0,0.26458667,-5e-4,0)" />
     </g>
     <circle
-       style="opacity:0.15;fill:#ffffff;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:0.15;fill:**base01**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="circle2511"
        cx="26.561939"
        cy="25.66497"
        r="2.1166933" />
     <circle
-       style="opacity:0.15;fill:#ffffff;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:0.15;fill:**base01**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="circle2513"
        cx="19.311424"
        cy="25.66497"
        r="2.1166933" />
     <circle
-       style="opacity:0.15;fill:#ffffff;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:0.15;fill:**base01**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="circle2515"
        cx="12.060911"
        cy="25.66497"
        r="2.1166933" />
     <path
        d="m 25.626557,24.597331 c -0.0338,0 -0.0676,0.01286 -0.0935,0.03876 -0.0518,0.05182 -0.0518,0.135246 0,0.187071 l 0.841809,0.841808 -0.841809,0.841809 c -0.0518,0.05182 -0.0518,0.135247 0,0.187071 0.0518,0.05182 0.135252,0.05182 0.187074,0 l 0.841809,-0.841809 0.841808,0.841809 c 0.0518,0.05182 0.135241,0.05182 0.187074,0 0.0518,-0.05182 0.0518,-0.135246 0,-0.187071 l -0.841809,-0.841809 0.841809,-0.841808 c 0.0518,-0.05182 0.0518,-0.135247 0,-0.187071 -0.0518,-0.05182 -0.135252,-0.05182 -0.187074,0 L 26.56194,25.4779 25.720131,24.636091 c -0.0259,-0.0259 -0.0597,-0.03876 -0.0935,-0.03876 z"
-       style="opacity:0.7;fill:#ffffff;stroke-width:0.264587;paint-order:stroke fill markers"
+       style="opacity:0.7;fill:**base01**;stroke-width:0.264587;paint-order:stroke fill markers"
        id="path2102" />
     <path
        d="m 18.782251,24.606623 c -0.293162,0 -0.529173,0.236012 -0.529173,0.529174 v 1.058346 c 0,0.293162 0.236014,0.529174 0.529173,0.529174 h 1.058347 c 0.293162,0 0.529173,-0.236012 0.529173,-0.529174 v -1.058346 c 0,-0.293162 -0.236014,-0.529174 -0.529173,-0.529174 z m 0,0.264587 h 1.058347 c 0.146581,0 0.264587,0.118011 0.264587,0.264587 v 1.058346 c 0,0.146576 -0.118011,0.264587 -0.264587,0.264587 h -1.058347 c -0.146573,0 -0.264584,-0.118011 -0.264584,-0.264587 v -1.058346 c 0,-0.146576 0.118011,-0.264587 0.264584,-0.264587 z"
-       style="opacity:0.7;fill:#ffffff;stroke-width:0.264587;paint-order:stroke fill markers"
+       style="opacity:0.7;fill:**base01**;stroke-width:0.264587;paint-order:stroke fill markers"
        id="path2110" />
     <rect
        x="11.002564"
@@ -151,13 +151,13 @@
        height="0.26458666"
        rx="0.13229333"
        ry="0.13229333"
-       style="opacity:0.7;fill:#ffffff;stroke-width:0.264587;paint-order:stroke fill markers"
+       style="opacity:0.7;fill:**base01**;stroke-width:0.264587;paint-order:stroke fill markers"
        id="rect2118" />
   </g>
   <g
      id="thumbnail">
     <rect
-       style="fill:#e6e6e6;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
+       style="fill:**base01**;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
        id="rect1083"
        width="26.458666"
        height="8.466773"
@@ -167,7 +167,7 @@
        id="g1726"
        clip-path="url(#clipPath2484)">
       <rect
-         style="opacity:0.35;fill:#000000;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
+         style="opacity:0.35;fill:**base07**;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
          id="rect1682"
          width="30.427467"
          height="11.9064"
@@ -186,35 +186,35 @@
          ry="3.17504" />
       <path
          id="rect2306"
-         style="fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:**base01**;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
          d="M 16,29 C 9.352,29 4,34.352 4,41 v 1 C 4,35.352 9.352,30 16,30 h 91 c 6.648,0 12,5.352 12,12 v -1 c 0,-6.648 -5.352,-12 -12,-12 z"
          transform="matrix(0.26458667,0,0,0.26458667,-5e-4,0)" />
     </g>
     <circle
-       style="opacity:0.15;fill:#000000;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:0.15;fill:**base07**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="path2409"
        cx="26.561939"
        cy="11.37729"
        r="2.1166933" />
     <circle
-       style="opacity:0.15;fill:#000000;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:0.15;fill:**base07**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="circle2551"
        cx="19.311424"
        cy="11.37729"
        r="2.1166933" />
     <circle
-       style="opacity:0.15;fill:#000000;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:0.15;fill:**base07**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="circle2559"
        cx="12.060911"
        cy="11.37729"
        r="2.1166933" />
     <path
        d="m 25.626557,10.30965 c -0.0338,0 -0.0676,0.01286 -0.0935,0.03876 -0.0518,0.05182 -0.0518,0.135246 0,0.187071 l 0.841809,0.841808 -0.841809,0.841809 c -0.0518,0.05182 -0.0518,0.135247 0,0.187071 0.0518,0.05182 0.135252,0.05182 0.187074,0 l 0.841809,-0.841809 0.841808,0.841809 c 0.0518,0.05182 0.135241,0.05182 0.187074,0 0.0518,-0.05182 0.0518,-0.135246 0,-0.187071 l -0.841809,-0.841809 0.841809,-0.841808 c 0.0518,-0.05182 0.0518,-0.135247 0,-0.187071 -0.0518,-0.05182 -0.135252,-0.05182 -0.187074,0 L 26.56194,11.190219 25.720131,10.34841 c -0.0259,-0.0259 -0.0597,-0.03876 -0.0935,-0.03876 z"
-       style="opacity:0.65;fill:#000000;stroke-width:0.264587;paint-order:stroke fill markers"
+       style="opacity:0.65;fill:**base07**;stroke-width:0.264587;paint-order:stroke fill markers"
        id="path742" />
     <path
        d="m 18.782251,10.318943 c -0.293162,0 -0.529173,0.236012 -0.529173,0.529174 v 1.058346 c 0,0.293162 0.236014,0.529174 0.529173,0.529174 h 1.058347 c 0.293162,0 0.529173,-0.236012 0.529173,-0.529174 v -1.058346 c 0,-0.293162 -0.236014,-0.529174 -0.529173,-0.529174 z m 0,0.264587 h 1.058347 c 0.146581,0 0.264587,0.118011 0.264587,0.264587 v 1.058346 c 0,0.146576 -0.118011,0.264587 -0.264587,0.264587 h -1.058347 c -0.146573,0 -0.264584,-0.118011 -0.264584,-0.264587 v -1.058346 c 0,-0.146576 0.118011,-0.264587 0.264584,-0.264587 z"
-       style="opacity:0.65;fill:#000000;stroke-width:0.264587;paint-order:stroke fill markers"
+       style="opacity:0.65;fill:**base07**;stroke-width:0.264587;paint-order:stroke fill markers"
        id="path744" />
     <rect
        x="11.002564"
@@ -223,14 +223,14 @@
        height="0.26458666"
        rx="0.13229333"
        ry="0.13229333"
-       style="opacity:0.65;fill:#000000;stroke-width:0.264587;paint-order:stroke fill markers"
+       style="opacity:0.65;fill:**base07**;stroke-width:0.264587;paint-order:stroke fill markers"
        id="rect746" />
   </g>
   <g
      id="thumbnail-Dark-macos"
      transform="translate(38.629653)">
     <rect
-       style="fill:#1a1a1a;fill-opacity:1;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
+       style="fill:**base07**;fill-opacity:1;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
        id="rect320"
        width="26.458666"
        height="8.466773"
@@ -241,7 +241,7 @@
        clip-path="url(#clipPath2484)"
        transform="translate(0,14.28768)">
       <rect
-         style="opacity:1;fill:#000000;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
+         style="opacity:1;fill:**base07**;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
          id="rect322"
          width="30.427467"
          height="11.9064"
@@ -250,7 +250,7 @@
          rx="3.17504"
          ry="3.17504" />
       <rect
-         style="fill:#2c2c2c;fill-opacity:1;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:**base06**;fill-opacity:1;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round"
          id="rect324"
          width="30.427467"
          height="11.9064"
@@ -260,7 +260,7 @@
          ry="3.17504" />
       <path
          id="path326"
-         style="opacity:0.1;fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         style="opacity:0.1;fill:**base01**;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
          d="M 16,29 C 9.352,29 4,34.352 4,41 v 1 C 4,35.352 9.352,30 16,30 h 91 c 6.648,0 12,5.352 12,12 v -1 c 0,-6.648 -5.352,-12 -12,-12 z"
          transform="matrix(0.26458667,0,0,0.26458667,-5e-4,0)" />
     </g>
@@ -271,7 +271,7 @@
        cy="25.66497"
        r="2.1166933" />
     <circle
-       style="opacity:1;fill:#38c76a;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:1;fill:**base12**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="circle332"
        cx="19.311424"
        cy="25.66497"
@@ -287,7 +287,7 @@
      id="thumbnail-macos"
      transform="translate(38.629653)">
     <rect
-       style="fill:#e6e6e6;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
+       style="fill:**base01**;stroke-width:0.435626;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"
        id="rect344"
        width="26.458666"
        height="8.466773"
@@ -297,7 +297,7 @@
        id="g352"
        clip-path="url(#clipPath2484)">
       <rect
-         style="opacity:0.35;fill:#000000;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
+         style="opacity:0.35;fill:**base07**;stroke-width:0.529173;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1702)"
          id="rect346"
          width="30.427467"
          height="11.9064"
@@ -316,7 +316,7 @@
          ry="3.17504" />
       <path
          id="path350"
-         style="fill:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:**base01**;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
          d="M 16,29 C 9.352,29 4,34.352 4,41 v 1 C 4,35.352 9.352,30 16,30 h 91 c 6.648,0 12,5.352 12,12 v -1 c 0,-6.648 -5.352,-12 -12,-12 z"
          transform="matrix(0.26458667,0,0,0.26458667,-5e-4,0)" />
     </g>
@@ -327,7 +327,7 @@
        cy="11.37729"
        r="2.1166933" />
     <circle
-       style="opacity:1;fill:#38c76a;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="opacity:1;fill:**base12**;fill-opacity:1;stroke-width:2.11669;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
        id="circle356"
        cx="19.311424"
        cy="11.37729"

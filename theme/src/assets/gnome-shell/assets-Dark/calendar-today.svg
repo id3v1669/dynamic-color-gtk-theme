@@ -14,13 +14,13 @@
      id="defs10" />
   <sodipodi:namedview
      id="namedview8"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
+     pagecolor="**base01**"
+     bordercolor="**base05**"
      borderopacity="1.0"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
+     inkscape:deskcolor="**base00**"
      showgrid="true"
      inkscape:zoom="6.9532167"
      inkscape:cx="-13.087468"
@@ -38,18 +38,18 @@
   <g
      transform="matrix(2,0,0,2,-939.14001,-1079.92)"
      id="g4"
-     style="fill:#ffffff">
+     style="fill:**base01**">
     <circle
        cx="481.57001"
        cy="559.46002"
        r="1.5"
-       color="#000000"
+       color="**base07**"
        color-rendering="auto"
        fill-opacity="0.2"
        image-rendering="auto"
        shape-rendering="auto"
-       solid-color="#000000"
-       style="isolation:auto;mix-blend-mode:normal;paint-order:normal;fill:#ffffff"
+       solid-color="**base07**"
+       style="isolation:auto;mix-blend-mode:normal;paint-order:normal;fill:**base01**"
        id="circle2" />
   </g>
 </svg>

@@ -14,13 +14,13 @@
      id="defs1" />
   <sodipodi:namedview
      id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
+     pagecolor="**base01**"
+     bordercolor="**base07**"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
+     inkscape:deskcolor="**base00**"
      inkscape:zoom="7.5769231"
      inkscape:cx="52.06599"
      inkscape:cy="52.06599"
@@ -33,14 +33,14 @@
   <g
      transform="translate(0 -948.36)"
      id="g1"
-     style="fill:#27a1b9;fill-opacity:1">
+     style="fill:**accent01**;fill-opacity:1">
     <circle
        id="corner-ripple"
        cx="52"
        cy="1000.4"
        r="48"
-       fill="#009688"
+       fill="**accent00**"
        opacity=".25"
-       style="fill:#27a1b9;fill-opacity:1" />
+       style="fill:**accent01**;fill-opacity:1" />
   </g>
 </svg>
