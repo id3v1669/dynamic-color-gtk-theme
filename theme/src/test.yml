@@ -9,7 +9,7 @@ base06: "282828" # bg-dark
 base07: "665c54" # bg-dark-alt
 base08: "cc241d" # red
 base09: "d13933" # red-light
-base0A: "cc241d" # red-dark
+base0A: "a31c17" # red-dark
 base0B: "d65d0e" # orange
 base0C: "fe8019" # orange-light
 base0D: "af3a03" # orange-dark
