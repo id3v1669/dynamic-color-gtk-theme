@@ -829,13 +829,13 @@ flowboxchild.card:not(.category-tile) {
 
     // Styling for specific category buttons.
     &.category-create {
-        background: linear-gradient(180deg, #ce8cd7 0%, #2861c6 100%);
+        background: linear-gradient(180deg, **base1D** 0%, #2861c6 100%);
         color: white;
 
         &:hover {
             background: linear-gradient(
                 180deg,
-                shade(#ce8cd7, 1.07) 0%,
+                shade(**base1D**, 1.07) 0%,
                 shade(#2861c6, 1.1) 100%
             );
             color: white;
@@ -844,7 +844,7 @@ flowboxchild.card:not(.category-tile) {
         &:active {
             background: linear-gradient(
                 180deg,
-                shade(#ce8cd7, 0.95) 0%,
+                shade(**base1D**, 0.95) 0%,
                 shade(#2861c6, 0.95) 100%
             );
             color: white;
@@ -852,29 +852,29 @@ flowboxchild.card:not(.category-tile) {
     }
 
     &.category-develop {
-        background-color: #5e5c64;
+        background-color: lighten(**base05**, 5%);
         color: white;
 
         &:hover {
-            background-color: shade(#5e5c64, 1.2);
+            background-color: shade(lighten(**base05**, 5%), 1.2);
             color: white;
         }
 
         &:active {
-            background-color: shade(#5e5c64, 0.95);
+            background-color: shade(lighten(**base05**, 5%), 0.95);
             color: white;
         }
     }
 
     &.category-learn {
-        background: linear-gradient(180deg, #2ec27e 30%, #27a66c 100%);
+        background: linear-gradient(180deg, **base12** 30%, **base11** 100%);
         color: white;
 
         &:hover {
             background: linear-gradient(
                 180deg,
-                shade(#2ec27e, 1.06) 30%,
-                shade(#27a66c, 1.06) 100%
+                shade(**base12**, 1.06) 30%,
+                shade(**base11**, 1.06) 100%
             );
             color: white;
         }
@@ -882,8 +882,8 @@ flowboxchild.card:not(.category-tile) {
         &:active {
             background: linear-gradient(
                 180deg,
-                shade(#2ec27e, 0.95) 30%,
-                shade(#27a66c, 0.95) 100%
+                shade(**base12**, 0.95) 30%,
+                shade(**base11**, 0.95) 100%
             );
             color: white;
         }
@@ -892,18 +892,18 @@ flowboxchild.card:not(.category-tile) {
     &.category-play {
         background: linear-gradient(
             75deg,
-            #f9e2a7 0%,
-            #eb5ec3 50%,
-            #6d53e0 100%
+            **base0F** 0%,
+            **base1E** 50%,
+            **base1B** 100%
         );
         color: #393484;
 
         &:hover {
             background: linear-gradient(
                 75deg,
-                shade(#f9e2a7, 1.07) 0%,
-                shade(#eb5ec3, 1.07) 50%,
-                shade(#6d53e0, 1.07) 100%
+                shade(**base0F**, 1.07) 0%,
+                shade(**base1E**, 1.07) 50%,
+                shade(**base1B**, 1.07) 100%
             );
             color: #393484;
         }
@@ -911,39 +911,39 @@ flowboxchild.card:not(.category-tile) {
         &:active {
             background: linear-gradient(
                 75deg,
-                shade(#f9e2a7, 0.97) 0%,
-                shade(#eb5ec3, 0.95) 50%,
-                shade(#6d53e0, 1.07) 100%
+                shade(**base0F**, 0.97) 0%,
+                shade(**base1E**, 0.95) 50%,
+                shade(**base1B**, 1.07) 100%
             );
             color: #393484;
         }
     }
 
     &.category-socialize {
-        background: linear-gradient(90deg, #ef4e9b 0%, #f77466 100%);
+        background: linear-gradient(90deg, **base1D** 0%, **base0C** 100%);
         color: $text-secondary;
 
         &:hover {
             background: linear-gradient(
                 90deg,
-                shade(#ef4e9b, 1.08) 0%,
-                shade(#f77466, 1.08) 100%
+                shade(**base1D**, 1.08) 0%,
+                shade(**base0C**, 1.08) 100%
             );
         }
 
         &:active {
             background: linear-gradient(
                 90deg,
-                shade(#ef4e9b, 0.95) 0%,
-                shade(#f77466, 0.95) 100%
+                shade(**base1D**, 0.95) 0%,
+                shade(**base0C**, 0.95) 100%
             );
         }
     }
 
     &.category-work {
         padding: 1px; /* FIXME: work around https://gitlab.gnome.org/GNOME/gtk/-/issues/4324 */
-        color: #1c71d8;
-        background-color: #fdf8d7;
+        color: #ff0000;
+        background-color: **base01**;
         background-image: linear-gradient($border 1px, transparent 1px),
             linear-gradient(90deg, $border 1px, transparent 1px);
         background-size:
@@ -955,15 +955,15 @@ flowboxchild.card:not(.category-tile) {
         background-repeat: repeat;
 
         &:hover {
-            color: #1c71d8;
-            background-color: lighten(#fdf8d7, 5%);
+            color: #ff0000;
+            background-color: lighten(**base01**, 5%);
             background-image: linear-gradient($border 1px, transparent 1px),
                 linear-gradient(90deg, $border 1px, transparent 1px);
         }
 
         &:active {
-            color: #1c71d8;
-            background-color: darken(#fdf8d7, 5%);
+            color: #ff0000;
+            background-color: darken(**base01**, 5%);
             background-image: linear-gradient($border 1px, transparent 1px),
                 linear-gradient(90deg, $border 1px, transparent 1px);
             background-size:
@@ -1474,7 +1474,7 @@ window > contents > leaflet {
 
 $weather_thermometer_high_color: $yellow-light;
 $weather_thermometer_low_color: $blue-light;
-$weather_forecast_color: #ae7b03;
+$weather_forecast_color: **base0D**;
 
 #places-label {
     font-weight: bold;

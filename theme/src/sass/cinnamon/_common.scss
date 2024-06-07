@@ -557,8 +557,8 @@ $sub_menu_bg: mix($text, $popover, 10%);
         padding: 0px;
         background-color: $panel_bg;
         box-shadow:
-            0 0 5px rgba(#000, 0.5),
-            0 0 16px rgba(#000, 0.24);
+            0 0 5px rgba(**base07**, 0.5),
+            0 0 16px rgba(**base07**, 0.24);
 
         .panel-button,
         .panel-status-button {
@@ -1884,8 +1884,8 @@ $sub_menu_bg: mix($text, $popover, 10%);
         border-radius: $corner-radius;
         color: $text;
         box-shadow:
-            0 3px 5px rgba(#000, 0.35),
-            0 3px 12px rgba(#000, 0.16);
+            0 3px 5px rgba(**base07**, 0.35),
+            0 3px 12px rgba(**base07**, 0.16);
     }
 }
 

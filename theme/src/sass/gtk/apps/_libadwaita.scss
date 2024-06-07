@@ -12,9 +12,9 @@ avatar {
     // need to update the NUMBER_OF_COLORS in src/adw-avatar.c.
     // The 2D list has this form: ((font-color, gradient-top-color, gradient-bottom-color)).
     $avatarcolorlist: (
-        (#cfe1f5, #83b6ec, #337fdc), // blue
-        (#caeaf2, #7ad9f1, #0f9ac8), // cyan
-        (#cef8d8, #8de6b1, #29ae74), // green
+        (#cfe1f5, #83b6ec, **base19**), // blue
+        (**base15**, **base14**, **base16**), // cyan
+        (**base12**, **base11**, **base13**), // green
         (#e6f9d7, #b5e98a, #6ab85b), // lime
         (#f9f4e1, #f8e359, #d29d09), // yellow
         (#ffead1, #ffcb62, #d68400), // gold
@@ -799,17 +799,17 @@ panelthemeselector {
         &.follow {
             background-image: linear-gradient(
                 to bottom right,
-                #e9e9ed 50%,
-                #292e42 50%
+                **base01** 50%,
+                **base04** 50%
             );
         }
 
         &.light {
-            background-color: #e9e9ed;
+            background-color: **base01**;
         }
 
         &.dark {
-            background-color: #292e42;
+            background-color: **base04**;
         }
 
         &.theme-selector radio {
@@ -902,7 +902,7 @@ themeswitcher {
         }
 
         &.system {
-            background: linear-gradient(-45deg, #1a1b26 50%, $white 50%);
+            background: linear-gradient(-45deg, **base06** 50%, $white 50%);
         }
 
         &.light {
@@ -912,7 +912,7 @@ themeswitcher {
 
         &.dark {
             color: $white;
-            background-color: #1a1b26;
+            background-color: **base06**;
         }
     }
 }
