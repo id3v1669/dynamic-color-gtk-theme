@@ -14,7 +14,7 @@ accentColorsWhitelist=("red" "orange" "yellow" "green" "cyan" "blue" "purlple" "
 accentColorName="orange"                   # default accent color
 declare -A accentColors                    # declare an associative array to store the contrast colors
 
-folder_name="sass"
+folder_name="src"
 input_dir="./$folder_name"
 output_dir="./$folder_name-colored"
 test_yml="./test.yml"

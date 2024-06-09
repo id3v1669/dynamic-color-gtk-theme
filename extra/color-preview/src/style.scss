@@ -1,0 +1,47 @@
+body {
+    background: #ffffff;
+    color: white;
+    padding: 0 24px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 10px;
+      max-width: 500px;
+      margin: 20px auto;
+  }
+  
+  .square {
+      width: 80px;
+      height: 80px;
+      background-color: #282828;
+      transition: background-color 0.3s;
+  }
+  
+  // Example specific styles
+  .square1 { background-color: #fbf1c7; }
+  .square2 { background-color: darken(#fbf1c7, 5%) }
+  .square3 { background-color: #fdf8d7; }
+  .square4 { background-color: darken(#ebdbb2, 5%); }
+  .square5 { background-color: lighten(#d5c4a1, 5%) }
+  .square6 { background-color: #d5c4a1; }
+  .square7 { background-color: darken(#d5c4a1, 5%) }
+  .square8 { background-color: lighten(#bdae93, 5%) }
+  .square9 { background-color: #bdae93; }
+  .square10 { background-color: darken(#bdae93, 5%) }
+  .square11 { background-color: lighten(#504945, 5%) }
+  .square12 { background-color: #504945; }
+  .square13 { background-color: #d8dade }
+  .square14 { background-color: #f6f9fe }
+  .square15 { background-color: #af3a03; }
+  .square16 { background-color: #282828 }
+  .square17 { background-color: #222426 }
+  .square18 { background-color: #202020 } // gnome 4 unknown - accent or blue
+  .square19 { background-color: #999da3 }
+  .square20 { background: linear-gradient(180deg, #b8bb26 30%, #98971a 100%); }
+  }

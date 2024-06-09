@@ -1,7 +1,7 @@
 // When color definition differs for dark and light variant,
 // it gets @if ed depending on $variant
 
-@import 'tweaks-temp';
+@import 'tweaks';
 
 @function gtkalpha($c, $a) {
 	@return unquote("alpha(#{$c}, #{$a})");
@@ -134,7 +134,7 @@ $drop_target_color:                     $orange-dark;
 $indicator:                             if($variant == 'dark', mix($primary, background(b), 0%), mix($primary, background(f), 0%));
 $titlebar-indicator:                    if($variant == 'dark', currentColor, $primary);
 $inverse-indicator:                     mix($primary, $white, 0%);
-$applet-primary:                        if($theme == 'grey' and variant == 'light' and $topbar == 'dark', $grey-200, $primary);
+$applet-primary:                        $primary;
 
 $background:                            if($variant == 'light', background(a), background(f));
 $surface:                               if($variant == 'light', background(b), background(g));

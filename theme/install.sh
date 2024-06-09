@@ -21,60 +21,8 @@ fi
 
 SASSC_OPT="-M -t expanded"
 
-THEME_NAME=Tokyonight
 THEME_VARIANTS=('' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-Grey')
 COLOR_VARIANTS=('-Light' '-Dark')
-SIZE_VARIANTS=('' '-Compact')
-
-if [[ "$(command -v gnome-shell)" ]]; then
-	echo && gnome-shell --version
-	SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-	if [[ "${SHELL_VERSION:-}" -ge "46" ]]; then
-	GS_VERSION="46-0"
-	elif [[ "${SHELL_VERSION:-}" -ge "44" ]]; then
-	GS_VERSION="44-0"
-	elif [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
-	GS_VERSION="42-0"
-	elif [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
-	GS_VERSION="40-0"
-	else
-	GS_VERSION="3-28"
-	fi
-else
-	echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-	GS_VERSION="46-0"
-fi
-
-usage() {
-	cat <<EOF
-Usage: $0 [OPTION]...
-
-OPTIONS:
-  -d, --dest DIR          Specify destination directory (Default: $DEST_DIR)
-
-  -n, --name NAME         Specify theme name (Default: $THEME_NAME)
-
-  -t, --theme VARIANT     Specify theme color variant(s) [default|purple|pink|red|orange|yellow|green|teal|grey|all] (Default: blue)
-
-  -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants))
-
-  -s, --size VARIANT      Specify size variant [standard|compact] (Default: standard variant)
-
-  -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
-
-  -r, --remove,
-  -u, --uninstall         Uninstall/Remove installed themes or links
-
-  --tweaks                Specify versions for tweaks
-                          1. [moon|storm]	Moon|Storm| ColorSchemes version
-                          2. black      	Blackness color version
-                          3. float      	Floating gnome-shell panel style
-                          4. outline    	Windows with 2px outline style
-                          5. macos:				Macos style windows button
-
-  -h, --help              Show help
-EOF
-}
 
 install() {
 	local dest="${1}"
@@ -93,41 +41,11 @@ install() {
 
 	echo "Installing '${THEME_DIR}'..."
 
-	theme_tweaks
 
-	mkdir -p "${THEME_DIR}"
-
-	# Index Theme File
-	echo "Type=X-GNOME-Metatheme" >>                            						 "${THEME_DIR}/index.theme"
-	echo "[Desktop Entry]" >>                                   						 "${THEME_DIR}/index.theme"
-	echo "Name=${2}${3}${4}${5}${6}" >>                         						 "${THEME_DIR}/index.theme"
-	echo "Comment=An Flat Gtk+ theme based on Elegant Design" >>						 "${THEME_DIR}/index.theme"
-	echo "Encoding=UTF-8" >>                                    						 "${THEME_DIR}/index.theme"
-	echo "" >>                                                  						 "${THEME_DIR}/index.theme"
-	echo "[X-GNOME-Metatheme]" >>                               						 "${THEME_DIR}/index.theme"
-	echo "GtkTheme=${2}${3}${4}${5}${6}" >>                     						 "${THEME_DIR}/index.theme"
-	echo "MetacityTheme=${2}${3}${4}${5}${6}" >>                						 "${THEME_DIR}/index.theme"
-	echo "IconTheme=Tela-circle${ELSE_DARK:-}" >>               						 "${THEME_DIR}/index.theme"
-	echo "CursorTheme=${2}-cursors" >>                          						 "${THEME_DIR}/index.theme"
-	echo "ButtonLayout=close,minimize,maximize:menu" >>         						 "${THEME_DIR}/index.theme"
-
-	# Gnome Shell Themes
-	mkdir -p                                                                			 "${THEME_DIR}/gnome-shell"
-	cp -r "${SRC_DIR}/main/gnome-shell/pad-osd.css"                         			 "${THEME_DIR}/gnome-shell"
-	sassc $SASSC_OPT "${SRC_DIR}/main/gnome-shell/gnome-shell${color}.scss" 			 "${THEME_DIR}/gnome-shell/gnome-shell.css"
-
-	cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"               					 "${THEME_DIR}/gnome-shell/assets"
-	cp -r "${SRC_DIR}/assets/gnome-shell/assets${ELSE_DARK:-}/"*.svg  					 "${THEME_DIR}/gnome-shell/assets"
-	cp -r "${SRC_DIR}/assets/gnome-shell/theme${theme}${ctype}/"*.svg 					 "${THEME_DIR}/gnome-shell/assets"
-
-	cd "${THEME_DIR}/gnome-shell"
-	ln -s assets/no-events.svg no-events.svg
-	ln -s assets/process-working.svg process-working.svg
-	ln -s assets/no-notifications.svg no-notifications.svg
 
 	# GTK2 Themes
 	mkdir -p                                                                      		 "${THEME_DIR}/gtk-2.0"
-	# cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${theme}${ELSE_DARK:-}${ctype}" 				 "${THEME_DIR}/gtk-2.0/gtkrc"
+	 cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${theme}${ELSE_DARK:-}${ctype}" 				 "${THEME_DIR}/gtk-2.0/gtkrc"
 	cp -r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                 		 "${THEME_DIR}/gtk-2.0"
 	cp -r "${SRC_DIR}/assets/gtk-2.0/assets-common${ELSE_DARK:-}"                 		 "${THEME_DIR}/gtk-2.0/assets"
 	cp -r "${SRC_DIR}/assets/gtk-2.0/assets${theme}${ELSE_DARK:-}${ctype}/"*"png" 		 "${THEME_DIR}/gtk-2.0/assets"
@@ -397,172 +315,8 @@ if [[ "${#sizes[@]}" -eq 0 ]]; then
 	sizes=("${SIZE_VARIANTS[0]}")
 fi
 
-#  Check command avalibility
-function has_command() {
-	command -v $1 >/dev/null
-}
-
-#  Install needed packages
-install_package() {
-	if ! has_command sassc; then
-		echo sassc needs to be installed to generate the css.
-		if has_command zypper; then
-			sudo zypper in sassc
-		elif has_command apt-get; then
-			sudo apt-get install sassc
-		elif has_command dnf; then
-			sudo dnf install sassc
-		elif has_command dnf; then
-			sudo dnf install sassc
-		elif has_command pacman; then
-			sudo pacman -S --noconfirm sassc
-		fi
-	fi
-}
-
-tweaks_temp() {
-	cp -rf "${SRC_DIR}/sass/_tweaks.scss" "${SRC_DIR}/sass/_tweaks-temp.scss"
-}
-
-compact_size() {
-	sed -i "/\$compact:/s/false/true/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-}
-
-storm_color() {
-	sed -i "/\@import/s/color-palette-default/color-palette-storm/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-	sed -i "/\$colorscheme:/s/default/storm/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-}
-
-moon_color() {
-	sed -i "/\@import/s/color-palette-default/color-palette-moon/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-	sed -i "/\$colorscheme:/s/default/moon/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-}
-
-blackness_color() {
-	sed -i "/\$blackness:/s/false/true/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-}
-
-float_panel() {
-	sed -i "/\$float:/s/false/true/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-}
-
-outline_style() {
-	sed -i "/\$outline:/s/false/true/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-}
-
-macos_winbutton() {
-	sed -i "/\$window_button:/s/normal/mac/" ${SRC_DIR}/sass/_tweaks-temp.scss
-}
-
-gnome_shell_version() {
-	cp -rf "${SRC_DIR}/sass/gnome-shell/_common.scss" "${SRC_DIR}/sass/gnome-shell/_common-temp.scss"
-
-	sed -i "/\widgets/s/40-0/${GS_VERSION}/" "${SRC_DIR}/sass/gnome-shell/_common-temp.scss"
-
-	if [[ "${GS_VERSION}" == '3-28' ]]; then
-		sed -i "/\extensions/s/40-0/${GS_VERSION}/" "${SRC_DIR}/sass/gnome-shell/_common-temp.scss"
-	fi
-}
-
-theme_color() {
-	if [[ "$theme" != '' ]]; then
-		case "$theme" in
-		-Purple)
-			theme_color='purple'
-			;;
-		-Pink)
-			theme_color='pink'
-			;;
-		-Red)
-			theme_color='red'
-			;;
-		-Orange)
-			theme_color='orange'
-			;;
-		-Yellow)
-			theme_color='yellow'
-			;;
-		-Green)
-			theme_color='green'
-			;;
-		-Teal)
-			theme_color='teal'
-			;;
-		-Grey)
-			theme_color='grey'
-			;;
-		esac
-		tweaks_temp
-		sed -i "/\$theme:/s/default/${theme_color}/" "${SRC_DIR}/sass/_tweaks-temp.scss"
-	fi
-}
-
-theme_tweaks() {
-	if [[ "$accent" = "true" ]]; then
-		theme_color
-	fi
-
-	if [[ "$compact" = "true" ]]; then
-		compact_size
-	fi
-
-	if [[ "$storm" = "true" ]]; then
-		storm_color
-	fi
-
-	if [[ "$moon" = "true" ]]; then
-		moon_color
-	fi
-
-	if [[ "$blackness" = "true" ]]; then
-		blackness_color
-	fi
-
-	if [[ "$float" = "true" ]]; then
-		float_panel
-	fi
-
-	if [[ "$outline" = "true" ]]; then
-		outline_style
-	fi
-
-	if [[ "$macos" = "true" ]]; then
-		macos_winbutton
-	fi
-}
-
 uninstall_link() {
 	rm -rf "${HOME}/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
-}
-
-link_libadwaita() {
-	local dest="${1}"
-	local name="${2}"
-	local theme="${3}"
-	local color="${4}"
-	local size="${5}"
-	local ctype="${6}"
-
-	local THEME_DIR="${1}/${2}${3}${4}${5}${6}"
-
-	rm -rf "${HOME}/.config/gtk-4.0/"{assets,gtk.css,gtk-dark.css}
-
-	echo -e "\nLink '$THEME_DIR/gtk-4.0' to '${HOME}/.config/gtk-4.0' for libadwaita..."
-
-	mkdir -p "${HOME}/.config/gtk-4.0"
-	ln -sf "${THEME_DIR}/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
-	ln -sf "${THEME_DIR}/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-	ln -sf "${THEME_DIR}/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
-}
-
-link_theme() {
-	for theme in "${themes[@]}"; do
-		for color in "${lcolors[@]}"; do
-			for size in "${sizes[@]}"; do
-				link_libadwaita "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color" "$size" "$ctype"
-			done
-		done
-	done
 }
 
 install_theme() {
@@ -584,45 +338,11 @@ install_theme() {
 	fi
 }
 
-uninstall() {
-	local dest="${1}"
-	local name="${2}"
-	local theme="${3}"
-	local color="${4}"
-	local size="${5}"
-	local ctype="${6}"
 
-	local THEME_DIR="${1}/${2}${3}${4}${5}${6}"
-
-	if [[ -d "${THEME_DIR}" ]]; then
-		echo -e "Uninstall ${THEME_DIR}... "
-		rm -rf "${THEME_DIR}"
-	fi
-}
-
-uninstall_theme() {
-	for theme in "${themes[@]}"; do
-		for color in "${colors[@]}"; do
-			for size in "${sizes[@]}"; do
-				uninstall "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color" "$size" "$ctype"
-			done
-		done
-	done
-}
-
-if [[ "$uninstall" == 'true' ]]; then
-	if [[ "$libadwaita" == 'true' ]]; then
-		echo -e "\nUninstall ${HOME}/.config/gtk-4.0 links ..."
-		uninstall_link
-	else
-		echo && uninstall_theme && uninstall_link
-	fi
-else
-	install_package && tweaks_temp && gnome_shell_version && install_theme
+	install_package && install_theme
 	if [[ "$libadwaita" == 'true' ]]; then
 		uninstall_link && link_theme
 	fi
-fi
 
 echo
 echo Done.
