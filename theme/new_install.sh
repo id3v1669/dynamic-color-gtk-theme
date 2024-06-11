@@ -22,7 +22,7 @@ declare -A accentColors                    # declare an associative array to sto
 theme_name="Dynamic-Color-GTK-Theme"
 input_dir="./src"
 temp_dir="./src-colored"
-theme_dir="$HOME/.theme/$theme_name"
+theme_dir="$HOME/.themes/$theme_name"
 default_theme_dir=true
 yml_file="./test.yml"
 
@@ -103,6 +103,7 @@ verify_or_create_theme_dir() {
     if ! yes_no; then
       link_gtk4_flag=false
     fi
+  fi
 }
 verify_dependencies() {
   for dep in "${dependencies[@]}"; do
@@ -300,14 +301,14 @@ EOF
 
 link_gtk4() {
 
-	rm -rf "${HOME}/.config/gtk-4.0/"{assets,gtk.css,gtk-dark.css}
+	rm -rf $HOME/.config/gtk-4.0/{assets,gtk.css,gtk-dark.css}
 
 	echo -e "\nLink '$theme_dir/gtk-4.0' to '${HOME}/.config/gtk-4.0' for libadwaita..."
 
-	mkdir -p "${HOME}/.config/gtk-4.0"
-	ln -sf $theme_dir/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets
-	ln -sf $theme_dir/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css
-	ln -sf $theme_dir/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css
+	mkdir -p $HOME/.config/gtk-4.0
+	ln -sf $theme_dir/gtk-4.0/assets $HOME/.config/gtk-4.0/assets
+	ln -sf $theme_dir/gtk-4.0/gtk.css $HOME/.config/gtk-4.0/gtk.css
+	ln -sf $theme_dir/gtk-4.0/gtk-dark.css $HOME/.config/gtk-4.0/gtk-dark.css
 }
 
 install_theme() {

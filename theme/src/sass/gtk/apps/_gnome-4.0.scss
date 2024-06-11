@@ -6,9 +6,19 @@
         background-color: $background;
     }
 
+    .sidebar-pane {
+        background-color: $background;
+        color: $text;
+
+        &:backdrop {
+            background-color: $background;
+            transition: none;
+        }
+    }
+
     placessidebar {
         > scrolledwindow {
-            @extend %sidebar_style;
+            @extend %nautilus_sidebar_style;
 
             > viewport > .navigation-sidebar {
                 @extend %sidebar_list;
@@ -39,7 +49,7 @@
 
     .nautilus-grid-view,
     .nautilus-list-view {
-        @extend %content_style;
+        @extend %nautilus_content_style;
 
         .view {
             background-color: transparent;
@@ -60,8 +70,72 @@
         }
 
         gridview.view {
-            margin: 10px;
-            padding: 8px;
+            margin: 6px;
+            padding: 6px;
+        }
+    }
+
+    tabbar {
+        .box {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+
+            &:backdrop {
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+    }
+
+    tabbox {
+        &,
+        &:backdrop {
+            transition: none;
+            background-color: transparent;
+        }
+
+        > tabboxchild {
+            > tab {
+                color: $titlebar-text-secondary;
+
+                &:hover {
+                    background-color: $titlebar-fill;
+                    color: $titlebar-text;
+                }
+
+                &:disabled {
+                    color: $titlebar-text-secondary-disabled;
+                }
+
+                &:checked,
+                &:selected {
+                    background-color: if(
+                        $variant == 'light',
+                        rgba($base, 0.4),
+                        $fill
+                    );
+                    color: $primary;
+                    box-shadow: none;
+
+                    &:disabled {
+                        color: $titlebar-text-disabled;
+                    }
+                }
+
+                button.tab-close-button {
+                    color: $titlebar-text;
+
+                    &:hover,
+                    &:active {
+                        color: $titlebar-text;
+                    }
+
+                    &:disabled {
+                        color: $titlebar-text;
+                    }
+                }
+            }
         }
     }
 
@@ -71,7 +145,7 @@
         margin: $space-size;
         border-style: none;
         border-radius: $modal-radius;
-        background-color: if($topbar == 'dark', $black, $white);
+        background-color: $background;
         color: $primary;
         box-shadow: $shadow-z3;
 
@@ -114,7 +188,7 @@
 }
 
 #NautilusPathBar {
-    background-color: if($topbar == 'light', rgba(white, 0.6), $titlebar-fill);
+    background-color: if($variant == 'light', rgba($base, 0.4), $fill);
     border-radius: $circular-radius;
     margin: $space-size 0;
 }
@@ -149,28 +223,6 @@
 //
 // Gnome Control Center
 //
-
-window.background > widget > leaflet.unfolded {
-    > box > scrolledwindow {
-        @extend %sidebar_style;
-
-        > viewport > widget > stack,
-        > viewport > widget > stack > box {
-            > .navigation-sidebar {
-                @extend %sidebar_list;
-            }
-        }
-
-        > scrollbar {
-            @extend %sidebar_scrollbar;
-            @extend %round_scrollbar;
-        }
-
-        entry {
-            @extend %sidebar_entry;
-        }
-    }
-}
 
 window.dialog {
     > box > stack > box > box {
@@ -641,7 +693,8 @@ monthpopover > box {
 }
 
 // Agenda View CSS
-agenda-view list {
+agenda-view list.background {
+    background-color: if($variant == 'light', **base02**, **base06**);
     > row {
         padding: 2px $space-size * 2;
     }
@@ -656,6 +709,7 @@ label.no-events {
 }
 
 // Search
+
 searchbutton > popover > arrow {
     background: none;
     border: none;
@@ -663,6 +717,38 @@ searchbutton > popover > arrow {
 
 menubutton stack > box {
     border-spacing: $space-size;
+}
+
+//
+// Gnome Tweaks
+//
+
+#TweakPreferencesPage label.dim-label {
+    color: $text-secondary-disabled;
+}
+
+.tweak-titlebar-left {
+    // @extend %sidebar_style;
+    background-color: if($variant == 'light', #d2d2da, #15161e);
+    box-shadow: inset 0 1px highlight($background);
+    border-top-left-radius: $window-radius;
+
+    &:backdrop {
+        background-color: if($variant == 'light', #d2d2da, #15161e);
+        box-shadow: inset 0 1px highlight($background);
+        border-top-left-radius: $window-radius;
+    }
+}
+
+leaflet.unfolded {
+    > box > scrolledwindow {
+        @extend %sidebar_style;
+
+        > scrollbar {
+            @extend %sidebar_scrollbar;
+            @extend %round_scrollbar;
+        }
+    }
 }
 
 //
