@@ -24,7 +24,12 @@ input_dir="./src"
 temp_dir="./src-colored"
 theme_dir="$HOME/.themes/$theme_name"
 default_theme_dir=true
-yml_file="./test.yml"
+url_colors="https://api.github.com/repos/id3v1669/32based-color-shemes/contents/src?ref=master"
+color_filenames=($(curl -s "$url_colors" | grep -oP '"name": "\K[^"]+' | grep -oP '.*(?=\.)'))
+color_palette=""
+palette_type="dark"
+palette_variants=("dark" "light")
+yml_file="./default.yml"
 
 declare -A baseColors                      # declare an associative array to store the base colors
 theme_dark=true                            # default theme is dark
@@ -64,6 +69,24 @@ verify_accent_color() {
   if [[ ! " ${accentColorsWhitelist[@]} " =~ " $accentColorName " ]]; then
     echo -e "${red}Invalid accent color: $accentColorName."
     echo -e "${blue}Availible accents: ${accentColorsWhitelist[@]}${defaultColour}"
+    exit 1
+  fi
+}
+verify_palette_name() {
+  filenames=($(curl -s "$url_colors" | grep -oP '"name": "\K[^"]+' | grep -oP '.*(?=\.)'))
+  if [[ ! " ${filenames[@]} " =~ " ${color_palette} " ]]; then
+    echo -e "${red}Invalid color palette: $color_palette."
+    echo -e "${blue}Availible palettes:"
+    for i in "${!filenames[@]}"; do
+      echo -e "${blue}${filenames[$i]}${defaultColour}"
+    done
+    exit 1
+  fi
+}
+verify_palette_type() {
+  if [[ ! " ${palette_variants[@]} " =~ " ${palette_type} " ]]; then
+    echo -e "${red}Invalid palette type: $palette_type."
+    echo -e "${blue}Availible types: ${palette_variants[@]}${defaultColour}"
     exit 1
   fi
 }
@@ -201,6 +224,13 @@ read_colors() {
     baseColors[$key]=$color
   done < <(grep -oE 'base[0-9A-Fa-f]{2}: "[0-9A-Fa-f]{6}"*' $yml_file)
 }
+swap_fg_bg() {
+  for i in {00..03}; do
+    temp="${baseColors["base$i"]}"
+    baseColors["base$i"]="${baseColors["base0$((i+4))"]}"
+    baseColors["base0$((i+4))"]="$temp"
+  done
+}
 #----------------------------------------#
 
 
@@ -254,6 +284,11 @@ set_accent_color() {
 
 #----------------------------------------#
 ##################Install#################
+
+download_palette() {
+  url_download="https://raw.githubusercontent.com/id3v1669/32based-color-shemes/master/src/$yml_file"
+  curl -s "$url_download" > "$yml_file"
+}
 
 set_gnome_shell_version() {
 	sed -i "/\widgets/s/40-0/${gs_version}/" "${temp_dir}/sass/gnome-shell/_common.scss"
@@ -381,15 +416,21 @@ install_theme() {
 		cp -r $temp_dir/main/plank/theme-Dark/*  							              $theme_dir/plank
 	fi
 }
-
 #----------------------------------------#
+
 
 
 echo "start"
 while getopts ":i:t:a:g:s:cbmfodh" flag; do
   case $flag in 
-    i) # custom colos yml
-        yml_file="$OPTARG"
+    i) # custom colos palette name
+        if [[ "$OPTARG" == *:* ]]; then
+            color_palette=$(echo $OPTARG | cut -d: -f1)
+            palette_type=$(echo $OPTARG | cut -d: -f2)
+        else
+            color_palette=$OPTARG
+        fi
+        yml_file="./$color_palette.yml"
         ;;
     t) # custom theme directory
         theme_dir="$OPTARG/$theme_name"
@@ -435,7 +476,14 @@ while getopts ":i:t:a:g:s:cbmfodh" flag; do
   esac
 done
 
-verify_yml_file $yml_file
+
+if [[ ! $color_palette == "" ]]; then
+  verify_palette_type
+  verify_palette_name
+  download_palette
+fi
+
+verify_yml_file
 verify_or_create_theme_dir $theme_dir
 verify_accent_color $accentColorName
 verify_gs_version
@@ -443,6 +491,9 @@ verify_dependencies
 verify_style
 
 read_colors
+if [[ $palette_type == "light" ]]; then
+  swap_fg_bg
+fi
 set_accent_color
 write
 
