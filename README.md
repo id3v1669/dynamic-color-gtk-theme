@@ -6,16 +6,21 @@ GTK theme based on 32 colors sheme from [this repo](https://github.com/id3v1669/
 
 # TODO:
 ## Script:
-* pngs workadound, lutgen?
-* add uninstall option for script
+* pngs - redo svg generations
 * rework variables in script
 * add aproprate debug messages
-* attach script to color-shemes repo
+* rework verifications and replace some of them wiht functions
 * finish 'help'
 ## Theme:
 * fix dynamic colors for light theme
+* file picker wrong button color "$suggested"
 * get rid of predeclared accent colors
 * lollypop - fix playlists icon
-* eww buttons do not lose on hover state, gtk theme or hyprland glitch?
+* text highlits use darker fg for dark theme
 ## Else:
+* add flake packaging
+* add nix dev shell
 * rewrite readme
+
+# Notes
+for light palettes highly recomended to used :light. Example: `-i catpuccin-latte:light`

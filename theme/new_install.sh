@@ -50,6 +50,8 @@ color_variants=("-Light" "-Dark" "")
 color_sheme=""
 else_dark=""
 else_light=""
+declare -A png_replacement_colors
+png_replacement_colors["base00"]="D2D2DA"
 #----------------------------------------#
 
 
@@ -183,6 +185,25 @@ verify_style() {
 
 #----------------------------------------#
 ################Write temp################
+generate_gtk_assets() {
+  input_svg="$temp_dir/assets/gtk/assets.svg"
+  local out_dir="$temp_dir/assets/gtk/assets"
+  mkdir -p $out_dir
+
+  get_ids="inkscape --query-all $input_svg"
+
+  ids=$(eval $get_ids | awk '{print $1}' | awk '/^\*\*/ { sub(/,.*/, ""); print }')
+
+  for id in $ids; do
+    moded_id=${id:2}
+    # regular assets
+    inkscape --export-id="$id" --export-id-only --export-filename="$out_dir/$moded_id.png" $input_svg
+    optipng -o7 --quiet "$out_dir/$moded_id.png"
+    # @2 assets
+    inkscape --export-id="$id" --export-id-only --export-dpi=192 --export-filename="$out_dir/$moded_id@2.png" $input_svg
+    optipng -o7 --quiet "$out_dir/$moded_id@2.png"
+  done
+}
 write() {
     # Recreate dest dir
     rm -rf "$temp_dir"
@@ -206,6 +227,8 @@ write() {
                 replace_hex="#${accentColors["$accent"]}"
                 sed -i "s/\*\*$accent\*\*/$replace_hex/g" "$target_file"
             done
+        else
+          echo "png"
         fi
     done
 }
@@ -348,72 +371,68 @@ link_gtk4() {
 
 install_theme() {
   # create directories
-  #rm -rf $theme_dir
   mkdir -p $theme_dir/{gtk-2.0,gtk-3.0,gtk-4.0,metacity-1,cinnamon,gnome-shell,xfwm4}/assets
 
   # Gnome Shell
-  cp -r $temp_dir/main/gnome-shell/pad-osd.css                      $theme_dir/gnome-shell
-	sassc $sassc_opt $temp_dir/main/gnome-shell/gnome-shell.scss		  $theme_dir/gnome-shell/gnome-shell.css
+  cp -r $temp_dir/main/gnome-shell/pad-osd.css                                      $theme_dir/gnome-shell
+	sassc $sassc_opt $temp_dir/main/gnome-shell/gnome-shell.scss		                  $theme_dir/gnome-shell/gnome-shell.css
 
-	cp -r $temp_dir/assets/gnome-shell/common-assets              		$theme_dir/gnome-shell/assets
-	cp -r $temp_dir/assets/gnome-shell/assets${else_dark:-}/*.svg  		$theme_dir/gnome-shell/assets
-	cp -r $temp_dir/assets/gnome-shell/theme/*.svg 					          $theme_dir/gnome-shell/assets
+	cp -r $temp_dir/assets/gnome-shell/common-assets              		                $theme_dir/gnome-shell/assets
+	cp -r $temp_dir/assets/gnome-shell/assets${else_dark:-}/*.svg  		                $theme_dir/gnome-shell/assets
+	cp -r $temp_dir/assets/gnome-shell/theme/*.svg 					                          $theme_dir/gnome-shell/assets
 
-	# Fixme
-	# cd $theme_dir/gnome-shell"
-	# ln -s assets/no-events.svg no-events.svg
-	# ln -s assets/process-working.svg process-working.svg
-	# ln -s assets/no-notifications.svg no-notifications.svg
+  cp $temp_dir/assets/gnome-shell/assets/{no-events,no-notifications}.svg           $theme_dir/gnome-shell
+  cp $temp_dir/assets/gnome-shell/common-assets/process-working.svg                 $theme_dir/gnome-shell
 
   # GTK2 Themes
-	cp -r $temp_dir/main/gtk-2.0/gtkrc${else_dark:-}  				            $theme_dir/gtk-2.0/gtkrc
-	cp -r $temp_dir/main/gtk-2.0/common/*.rc                              $theme_dir/gtk-2.0
-	cp -r $temp_dir/assets/gtk-2.0/assets-common${else_dark:-}            $theme_dir/gtk-2.0/assets
-	cp -r $temp_dir/assets/gtk-2.0/assets${else_dark:-}/*.png 		        $theme_dir/gtk-2.0/assets
+	cp -r $temp_dir/main/gtk-2.0/gtkrc${else_dark:-}  				                        $theme_dir/gtk-2.0/gtkrc
+	cp -r $temp_dir/main/gtk-2.0/common/*.rc                                          $theme_dir/gtk-2.0
+	cp -r $temp_dir/assets/gtk-2.0/assets-common${else_dark:-}                        $theme_dir/gtk-2.0/assets
+	cp -r $temp_dir/assets/gtk-2.0/assets${else_dark:-}/*.png 		                    $theme_dir/gtk-2.0/assets
 
 	# GTK3 Themes
-  cp -r $temp_dir/assets/gtk/assets                                     $theme_dir/gtk-3.0/assets
-	cp -r $temp_dir/assets/gtk/scalable                                   $theme_dir/gtk-3.0/assets
-	cp -r $temp_dir/assets/gtk/thumbnails/thumbnail.png                   $theme_dir/gtk-3.0/thumbnail.png
-	sassc $SASSC_OPT $temp_dir/main/gtk-3.0/gtk${color_sheme:-}.scss            $theme_dir/gtk-3.0/gtk.css
-	sassc $SASSC_OPT $temp_dir/main/gtk-3.0/gtk-Dark.scss                 $theme_dir/gtk-3.0/gtk-dark.css
+  cp -r $temp_dir/assets/gtk/assets                                                 $theme_dir/gtk-3.0/assets
+	cp -r $temp_dir/assets/gtk/scalable                                               $theme_dir/gtk-3.0/assets
+	cp -r $temp_dir/assets/gtk/thumbnails/thumbnail.png                               $theme_dir/gtk-3.0/thumbnail.png
+	sassc $SASSC_OPT $temp_dir/main/gtk-3.0/gtk${color_sheme:-}.scss                  $theme_dir/gtk-3.0/gtk.css
+	sassc $SASSC_OPT $temp_dir/main/gtk-3.0/gtk-Dark.scss                             $theme_dir/gtk-3.0/gtk-dark.css
 
 	# GTK4 Themes
-	cp -r $temp_dir/assets/gtk/scalable                                   $theme_dir/gtk-4.0/assets
-	cp -r $temp_dir/assets/gtk/thumbnails/thumbnail.png                   $theme_dir/gtk-4.0/thumbnail.png
-	sassc $SASSC_OPT $temp_dir/main/gtk-4.0/gtk${color_sheme:-}.scss            $theme_dir/gtk-4.0/gtk.css
-	sassc $SASSC_OPT $temp_dir/main/gtk-4.0/gtk-Dark.scss                 $theme_dir/gtk-4.0/gtk-dark.css
+	cp -r $temp_dir/assets/gtk/scalable                                               $theme_dir/gtk-4.0/assets
+	cp -r $temp_dir/assets/gtk/thumbnails/thumbnail.png                               $theme_dir/gtk-4.0/thumbnail.png
+	sassc $SASSC_OPT $temp_dir/main/gtk-4.0/gtk${color_sheme:-}.scss                  $theme_dir/gtk-4.0/gtk.css
+	sassc $SASSC_OPT $temp_dir/main/gtk-4.0/gtk-Dark.scss                             $theme_dir/gtk-4.0/gtk-dark.css
 
 	# Cinnamon Themes
-	cp -r $temp_dir/assets/cinnamon/common-assets                         $theme_dir/cinnamon/assets
-	cp -r $temp_dir/assets/cinnamon/assets${else_dark:-}/*.svg            $theme_dir/cinnamon/assets
-	cp -r $temp_dir/assets/cinnamon/theme/*.svg                           $theme_dir/cinnamon/assets
-	sassc $SASSC_OPT $temp_dir/main/cinnamon/cinnamon${color_sheme:-}.scss        $theme_dir/cinnamon/cinnamon.css
-	cp -r $temp_dir/assets/cinnamon/thumbnails/thumbnail.png              $theme_dir/cinnamon/thumbnail.png
+	cp -r $temp_dir/assets/cinnamon/common-assets                                     $theme_dir/cinnamon/assets
+	cp -r $temp_dir/assets/cinnamon/assets${else_dark:-}/*.svg                        $theme_dir/cinnamon/assets
+	cp -r $temp_dir/assets/cinnamon/theme/*.svg                                       $theme_dir/cinnamon/assets
+	sassc $SASSC_OPT $temp_dir/main/cinnamon/cinnamon${color_sheme:-}.scss            $theme_dir/cinnamon/cinnamon.css
+	cp -r $temp_dir/assets/cinnamon/thumbnails/thumbnail.png                          $theme_dir/cinnamon/thumbnail.png
 
 	# Metacity Themes
-  for i in {1..3}; do cp $temp_dir/main/metacity-1/metacity-theme-3.xml $theme_dir/metacity-1/metacity-theme-${i}.xml; done
-	cp -r $temp_dir/assets/metacity-1/assets                      		    $theme_dir/metacity-1/assets
-	cp -r $temp_dir/assets/metacity-1/thumbnail${else_dark:-}.png 		    $theme_dir/metacity-1/thumbnail.png
+  for i in {1..3}; do cp $temp_dir/main/metacity-1/metacity-theme-3.xml             $theme_dir/metacity-1/metacity-theme-${i}.xml; done
+	cp -r $temp_dir/assets/metacity-1/assets                      		                $theme_dir/metacity-1/assets
+	cp -r $temp_dir/assets/metacity-1/thumbnail${else_dark:-}.png 		                $theme_dir/metacity-1/thumbnail.png
 
   # XFWM4 Themes
-	cp -r $temp_dir/assets/xfwm4/assets${else_light:-}/*.png              $theme_dir/xfwm4
-	cp -r $temp_dir/main/xfwm4/themerc${else_light:-}                     $theme_dir/xfwm4/themerc
-#	mkdir -p                                                              $theme_dir-hdpi/xfwm4
-#	cp -r $temp_dir/assets/xfwm4/assets${ELSE_LIGHT:-}-hdpi/"*.png        $theme_dir-hdpi/xfwm4
-#	cp -r $temp_dir/main/xfwm4/themerc${ELSE_LIGHT:-}"                    $theme_dir-hdpi/xfwm4/themerc
-#	sed -i "s/button_offset=6/button_offset=9/"                           $theme_dir-hdpi/xfwm4/themerc
-#	mkdir -p                                                              $theme_dir-xhdpi/xfwm4
-#	cp -r $temp_dir/assets/xfwm4/assets${ELSE_LIGHT:-}-xhdpi/"*.png       $theme_dir-xhdpi/xfwm4
-#	cp -r $temp_dir/main/xfwm4/themerc${ELSE_LIGHT:-}"                    $theme_dir-xhdpi/xfwm4/themerc
-#	sed -i "s/button_offset=6/button_offset=12/"                          $theme_dir-xhdpi/xfwm4/themerc
+	cp -r $temp_dir/assets/xfwm4/assets${else_light:-}/*.png                          $theme_dir/xfwm4
+	cp -r $temp_dir/main/xfwm4/themerc${else_light:-}                                 $theme_dir/xfwm4/themerc
+  mkdir -p                                                                          $theme_dir-hdpi/xfwm4
+	cp -r $temp_dir/assets/xfwm4/assets${else_light:-}-hdpi/*.png                     $theme_dir-hdpi/xfwm4
+	cp -r $temp_dir/main/xfwm4/themerc${else_light:-}                                 $theme_dir-hdpi/xfwm4/themerc
+	sed -i "s/button_offset=6/button_offset=9/"                                       $theme_dir-hdpi/xfwm4/themerc
+	mkdir -p                                                                          $theme_dir-xhdpi/xfwm4
+	cp -r $temp_dir/assets/xfwm4/assets${else_light:-}-xhdpi/*.png                    $theme_dir-xhdpi/xfwm4
+	cp -r $temp_dir/main/xfwm4/themerc${else_light:-}                                 $theme_dir-xhdpi/xfwm4/themerc
+	sed -i "s/button_offset=6/button_offset=12/"                                      $theme_dir-xhdpi/xfwm4/themerc
 
 	# Plank Themes
-	mkdir -p                                                							$theme_dir/plank
+	mkdir -p                                                							            $theme_dir/plank
 	if [[ "$color_sheme" == '-Light' ]]; then
-		cp -r $temp_dir/main/plank/theme-Light/* 							              $theme_dir/plank
+		cp -r $temp_dir/main/plank/theme-Light/* 							                          $theme_dir/plank
 	else
-		cp -r $temp_dir/main/plank/theme-Dark/*  							              $theme_dir/plank
+		cp -r $temp_dir/main/plank/theme-Dark/*  							                          $theme_dir/plank
 	fi
 }
 #----------------------------------------#
@@ -496,8 +515,7 @@ if [[ $palette_type == "light" ]]; then
 fi
 set_accent_color
 write
-
-#test_inst
+generate_gtk_assets
 
 if [[ $compat_flag == true ]]; then
     compact_size
