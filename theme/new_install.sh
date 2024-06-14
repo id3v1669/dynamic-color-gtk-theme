@@ -185,14 +185,34 @@ verify_style() {
 
 #----------------------------------------#
 ################Write temp################
+generate_pngs(){
+  local input_svg="$1"
+  local out_dir="$2"
+  local extra_args="$3"
+  local postfix="$4"
+  mkdir -p "$out_dir"
+
+  local get_ids="inkscape --query-all $input_svg"
+  local ids=$(eval $get_ids | awk '{print $1}' | awk '/^\*\*/ { sub(/,.*/, ""); print }')
+
+  for id in $ids; do
+    moded_id=${id:2}
+    inkscape --export-id="$id" \
+      --export-id-only \
+      $extra_args \
+      --export-filename="$out_dir/$moded_id$postfix.png" $input_svg
+    optipng -o7 --quiet "$out_dir/$moded_id$postfix.png"
+  done
+}
 generate_gtk_assets() {
-  input_svg="$temp_dir/assets/gtk/assets.svg"
+  local input_svg="$temp_dir/assets/gtk/assets.svg"
+  local input_thumbnail_svg="$temp_dir/assets/gtk/thumbnails/thumbnail.svg"
   local out_dir="$temp_dir/assets/gtk/assets"
-  mkdir -p $out_dir
+  mkdir -p "$out_dir"
 
-  get_ids="inkscape --query-all $input_svg"
+  local get_ids="inkscape --query-all $input_svg"
 
-  ids=$(eval $get_ids | awk '{print $1}' | awk '/^\*\*/ { sub(/,.*/, ""); print }')
+  local ids=$(eval $get_ids | awk '{print $1}' | awk '/^\*\*/ { sub(/,.*/, ""); print }')
 
   for id in $ids; do
     moded_id=${id:2}
@@ -202,6 +222,26 @@ generate_gtk_assets() {
     # @2 assets
     inkscape --export-id="$id" --export-id-only --export-dpi=192 --export-filename="$out_dir/$moded_id@2.png" $input_svg
     optipng -o7 --quiet "$out_dir/$moded_id@2.png"
+  done
+
+  #thumbnails
+  inkscape --export-id="thumbnail${else_dark:-}" \
+           --export-id-only \
+           --export-dpi=96 \
+           --export-filename="$temp_dir/assets/gtk/thumbnails/thumbnail.png" \
+           $input_thumbnail_svg #>/dev/null
+  optipng -o7 --quiet "$temp_dir/assets/gtk/thumbnails/thumbnail.png"
+}
+generate_cinnamon_thumbnails() {
+  local input_svg="$temp_dir/assets/cinnamon/thumbnails/thumbnail.svg"
+  local out_dir="$temp_dir/assets/cinnamon/thumbnails"
+  local get_ids="inkscape --query-all $input_svg"
+  local ids=$(eval $get_ids | awk '{print $1}' | awk '/^\*\*/ { sub(/,.*/, ""); print }')
+
+  for id in $ids; do
+    moded_id=${id:2}
+    inkscape --export-id="$id" --export-id-only --export-filename="$out_dir/$moded_id.png" $input_svg
+    optipng -o7 --quiet "$out_dir/$moded_id.png"
   done
 }
 write() {
@@ -231,6 +271,16 @@ write() {
           echo "png"
         fi
     done
+    # generate cinnamon thumbnails
+    generate_pngs "$temp_dir/assets/cinnamon/thumbnail.svg" "$temp_dir/assets/cinnamon/thumbnails" "" ""
+    # generate gtk assets
+    generate_pngs "$temp_dir/assets/gtk/assets.svg" "$temp_dir/assets/gtk/assets" "" ""
+    generate_pngs "$temp_dir/assets/gtk/assets.svg" "$temp_dir/assets/gtk/assets" "--export-dpi=192" "@2"
+    generate_pngs "$temp_dir/assets/gtk/thumbnail.svg" "$temp_dir/assets/gtk/thumbnails" "--export-dpi=96" ""
+    # generate gtk2 assets
+    generate_pngs "$temp_dir/assets/gtk-2.0/assets.svg" "$temp_dir/assets/gtk-2.0/assets" "" ""
+
+
 }
 #----------------------------------------#
 
@@ -394,12 +444,14 @@ install_theme() {
   cp -r $temp_dir/assets/gtk/assets                                                 $theme_dir/gtk-3.0/assets
 	cp -r $temp_dir/assets/gtk/scalable                                               $theme_dir/gtk-3.0/assets
 	cp -r $temp_dir/assets/gtk/thumbnails/thumbnail.png                               $theme_dir/gtk-3.0/thumbnail.png
+  cp -r $temp_dir/assets/gtk/thumbnails/thumbnail-Dark.png                          $theme_dir/gtk-3.0/thumbnail-Dark.png
 	sassc $SASSC_OPT $temp_dir/main/gtk-3.0/gtk${color_sheme:-}.scss                  $theme_dir/gtk-3.0/gtk.css
 	sassc $SASSC_OPT $temp_dir/main/gtk-3.0/gtk-Dark.scss                             $theme_dir/gtk-3.0/gtk-dark.css
 
 	# GTK4 Themes
 	cp -r $temp_dir/assets/gtk/scalable                                               $theme_dir/gtk-4.0/assets
 	cp -r $temp_dir/assets/gtk/thumbnails/thumbnail.png                               $theme_dir/gtk-4.0/thumbnail.png
+  cp -r $temp_dir/assets/gtk/thumbnails/thumbnail-Dark.png                          $theme_dir/gtk-4.0/thumbnail-Dark.png
 	sassc $SASSC_OPT $temp_dir/main/gtk-4.0/gtk${color_sheme:-}.scss                  $theme_dir/gtk-4.0/gtk.css
 	sassc $SASSC_OPT $temp_dir/main/gtk-4.0/gtk-Dark.scss                             $theme_dir/gtk-4.0/gtk-dark.css
 
@@ -515,7 +567,8 @@ if [[ $palette_type == "light" ]]; then
 fi
 set_accent_color
 write
-generate_gtk_assets
+#generate_gtk_assets
+#generate_cinnamon_thumbnails
 
 if [[ $compat_flag == true ]]; then
     compact_size
