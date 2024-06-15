@@ -204,46 +204,6 @@ generate_pngs(){
     optipng -o7 --quiet "$out_dir/$moded_id$postfix.png"
   done
 }
-generate_gtk_assets() {
-  local input_svg="$temp_dir/assets/gtk/assets.svg"
-  local input_thumbnail_svg="$temp_dir/assets/gtk/thumbnails/thumbnail.svg"
-  local out_dir="$temp_dir/assets/gtk/assets"
-  mkdir -p "$out_dir"
-
-  local get_ids="inkscape --query-all $input_svg"
-
-  local ids=$(eval $get_ids | awk '{print $1}' | awk '/^\*\*/ { sub(/,.*/, ""); print }')
-
-  for id in $ids; do
-    moded_id=${id:2}
-    # regular assets
-    inkscape --export-id="$id" --export-id-only --export-filename="$out_dir/$moded_id.png" $input_svg
-    optipng -o7 --quiet "$out_dir/$moded_id.png"
-    # @2 assets
-    inkscape --export-id="$id" --export-id-only --export-dpi=192 --export-filename="$out_dir/$moded_id@2.png" $input_svg
-    optipng -o7 --quiet "$out_dir/$moded_id@2.png"
-  done
-
-  #thumbnails
-  inkscape --export-id="thumbnail${else_dark:-}" \
-           --export-id-only \
-           --export-dpi=96 \
-           --export-filename="$temp_dir/assets/gtk/thumbnails/thumbnail.png" \
-           $input_thumbnail_svg #>/dev/null
-  optipng -o7 --quiet "$temp_dir/assets/gtk/thumbnails/thumbnail.png"
-}
-generate_cinnamon_thumbnails() {
-  local input_svg="$temp_dir/assets/cinnamon/thumbnails/thumbnail.svg"
-  local out_dir="$temp_dir/assets/cinnamon/thumbnails"
-  local get_ids="inkscape --query-all $input_svg"
-  local ids=$(eval $get_ids | awk '{print $1}' | awk '/^\*\*/ { sub(/,.*/, ""); print }')
-
-  for id in $ids; do
-    moded_id=${id:2}
-    inkscape --export-id="$id" --export-id-only --export-filename="$out_dir/$moded_id.png" $input_svg
-    optipng -o7 --quiet "$out_dir/$moded_id.png"
-  done
-}
 write() {
     # Recreate dest dir
     rm -rf "$temp_dir"
@@ -279,7 +239,7 @@ write() {
     generate_pngs "$temp_dir/assets/gtk/thumbnail.svg" "$temp_dir/assets/gtk/thumbnails" "--export-dpi=96" ""
     # generate gtk2 assets
     generate_pngs "$temp_dir/assets/gtk-2.0/assets.svg" "$temp_dir/assets/gtk-2.0/assets" "" ""
-
+    generate_pngs "$temp_dir/assets/gtk-2.0/assets-Dark.svg" "$temp_dir/assets/gtk-2.0/assets-Dark" "" ""
 
 }
 #----------------------------------------#
