@@ -238,8 +238,8 @@ write() {
     generate_pngs "$temp_dir/assets/gtk/assets.svg" "$temp_dir/assets/gtk/assets" "--export-dpi=192" "@2"
     generate_pngs "$temp_dir/assets/gtk/thumbnail.svg" "$temp_dir/assets/gtk/thumbnails" "--export-dpi=96" ""
     # generate gtk2 assets
-    generate_pngs "$temp_dir/assets/gtk-2.0/assets.svg" "$temp_dir/assets/gtk-2.0/assets" "" ""
-    generate_pngs "$temp_dir/assets/gtk-2.0/assets-Dark.svg" "$temp_dir/assets/gtk-2.0/assets-Dark" "" ""
+    generate_pngs "$temp_dir/assets/gtk-2.0/assets${else_dark:-}.svg" "$temp_dir/assets/gtk-2.0/assets" "" ""
+    generate_pngs "$temp_dir/assets/gtk-2.0/assets-common${else_dark:-}.svg" "$temp_dir/assets/gtk-2.0/assets-common" "" ""
 
 }
 #----------------------------------------#
@@ -361,7 +361,7 @@ Encoding=UTF-8
 [X-GNOME-Metatheme]
 GtkTheme=Dynamic-Color-GTK-Theme
 MetacityTheme=Dynamic-Color-GTK-Theme
-IconTheme=Tela-circle${ELSE_DARK:-}
+IconTheme=Tela-circle${else_dark:-}
 CursorTheme=${todo}-cursors
 ButtonLayout=close,minimize,maximize:menu
 EOF
@@ -397,8 +397,8 @@ install_theme() {
   # GTK2 Themes
 	cp -r $temp_dir/main/gtk-2.0/gtkrc${else_dark:-}  				                        $theme_dir/gtk-2.0/gtkrc
 	cp -r $temp_dir/main/gtk-2.0/common/*.rc                                          $theme_dir/gtk-2.0
-	cp -r $temp_dir/assets/gtk-2.0/assets-common${else_dark:-}                        $theme_dir/gtk-2.0/assets
-	cp -r $temp_dir/assets/gtk-2.0/assets${else_dark:-}/*.png 		                    $theme_dir/gtk-2.0/assets
+	cp -r $temp_dir/assets/gtk-2.0/assets-common                                      $theme_dir/gtk-2.0/assets
+	cp -r $temp_dir/assets/gtk-2.0/assets/*.png               		                    $theme_dir/gtk-2.0/assets
 
 	# GTK3 Themes
   cp -r $temp_dir/assets/gtk/assets                                                 $theme_dir/gtk-3.0/assets
