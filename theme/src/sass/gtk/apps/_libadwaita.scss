@@ -414,7 +414,7 @@ overlay-split-view {
 
 // Sidebar
 %sidebar_style {
-    background-color: if($variant == 'light', **base02**, **base06**);
+    background-color: if($variant == 'light', $grey-150, $grey-900);
     color: on($background);
     border-radius: none;
     margin: 0;
@@ -620,7 +620,7 @@ overlay-split-view {
 }
 
 .sidebar-pane {
-    background-color: if($variant == 'light', **base02**, **base06**);
+    background-color: if($variant == 'light', $grey-150, $grey-900);
     color: $text;
     border-top-left-radius: $window-radius;
 
@@ -754,17 +754,17 @@ panelthemeselector {
         &.follow {
             background-image: linear-gradient(
                 to bottom right,
-                **base01** 50%,
-                **base04** 50%
+                $grey-050 50%,
+                $grey-750 50%
             );
         }
 
         &.light {
-            background-color: **base01**;
+            background-color: $grey-050;
         }
 
         &.dark {
-            background-color: **base04**;
+            background-color: $grey-750;
         }
 
         &.theme-selector radio {
