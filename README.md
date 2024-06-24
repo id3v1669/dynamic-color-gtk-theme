@@ -13,6 +13,7 @@ GTK theme based on 32 colors sheme from [this repo](https://github.com/id3v1669/
 * finish 'help'
 ## Theme:
 * fix dynamic colors for light theme
+* gtk2 fix new asset sizes
 * file picker wrong button color "$suggested"
 * get rid of predeclared accent colors
 * lollypop - fix playlists icon
