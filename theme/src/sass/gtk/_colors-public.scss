@@ -84,9 +84,7 @@ $windows-border: if(
 
 @define-color wm_button_icon #{"" + $white};
 
-@if $colorscheme == 'moon' {
-    @define-color wm_button_icon alpha(#{black}, 0.5);
-}
+
 
 @define-color wm_button_focused_bg #{"" + if($topbar == 'light', mix($white, $titlebar, 60%), $titlebar-fill)};
 @define-color wm_button_unfocused_bg #{"" + if($topbar == 'light', mix($white, $titlebar, 60%), $titlebar-fill)};
