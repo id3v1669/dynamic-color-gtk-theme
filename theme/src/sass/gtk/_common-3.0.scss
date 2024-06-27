@@ -4682,7 +4682,6 @@ decoration {
         // change when we go to backdrop, to prevent jumping windows.
         // The biggest shadow should be in the same order then in the active state
         // or the jumping will happen during the transition.
-
         @if $outline == 'false' {
             box-shadow:
                 $shadow-z4,
@@ -4716,9 +4715,35 @@ decoration {
 
     // server-side decorations as used by mutter
     .ssd & {
-        border: none;
-        border-radius: $window-radius $window-radius 0 0;
-        box-shadow: none;
+        margin: 0;
+
+        @if $outline == 'true' {
+            border: none;
+            border-radius: $window-radius $window-radius 0 0;
+            box-shadow:
+                0 3px 3px rgba(0, 0, 0, 0.16),
+                0 0 0 2px $primary;
+        } @else {
+            border: none;
+            border-radius: $window-radius $window-radius 0 0;
+            box-shadow: non
+        }
+
+        &:backdrop {
+
+            @if $outline == 'true' {
+                border: none;
+                border-radius: $window-radius $window-radius 0 0;
+
+                box-shadow:
+                    0 3px 3px rgba(0, 0, 0, 0.16),
+                    0 0 0 2px if($variant == 'light', $grey-450, $grey-750);
+            } @else {
+                border: none;
+                border-radius: $window-radius $window-radius 0 0;
+                box-shadow: none;
+            }
+        }
     }
 
     .metacity & {
@@ -4756,6 +4781,7 @@ decoration {
         border-radius: 0;
         box-shadow: none;
         background-color: $titlebar;
+        
         border: 1px solid $solid-border;
 
         &:backdrop {
@@ -4879,6 +4905,8 @@ decoration {
 }
 
 %firefox_window_button {
+    padding: 8px 20px;
+
     &.minimize,
     &.maximize,
     &.close {

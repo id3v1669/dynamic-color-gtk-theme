@@ -418,7 +418,7 @@ event {
     }
 
     &:not(.timed).color-dark {
-        color: white;
+        color: **base01**;
         outline-color: rgba(0, 0, 0, 0.3);
     }
 
@@ -938,46 +938,46 @@ flowboxchild.card:not(.category-tile) {
 
     // Styling for specific category buttons.
     &.category-create {
-        background: linear-gradient(180deg, **base1D** 0%, #2861c6 100%);
-        color: white;
+        background: linear-gradient(180deg, **base1D** 0%, **base17** 100%);
+        color: **base01**;
 
         &:hover {
             background: linear-gradient(
                 180deg,
                 shade(**base1D**, 1.07) 0%,
-                shade(#2861c6, 1.1) 100%
+                shade(**base17**, 1.1) 100%
             );
-            color: white;
+            color: **base01**;
         }
 
         &:active {
             background: linear-gradient(
                 180deg,
                 shade(**base1D**, 0.95) 0%,
-                shade(#2861c6, 0.95) 100%
+                shade(**base17**, 0.95) 100%
             );
-            color: white;
+            color: **base01**;
         }
     }
 
     &.category-develop {
         background-color: lighten(**base05**, 5%);
-        color: white;
+        color: **base01**;
 
         &:hover {
             background-color: shade(lighten(**base05**, 5%), 1.2);
-            color: white;
+            color: **base01**;
         }
 
         &:active {
             background-color: shade(lighten(**base05**, 5%), 0.95);
-            color: white;
+            color: **base01**;
         }
     }
 
     &.category-learn {
         background: linear-gradient(180deg, **base12** 30%, **base11** 100%);
-        color: white;
+        color: **base01**;
 
         &:hover {
             background: linear-gradient(
@@ -985,7 +985,7 @@ flowboxchild.card:not(.category-tile) {
                 shade(**base12**, 1.06) 30%,
                 shade(**base11**, 1.06) 100%
             );
-            color: white;
+            color: **base01**;
         }
 
         &:active {
@@ -994,7 +994,7 @@ flowboxchild.card:not(.category-tile) {
                 shade(**base12**, 0.95) 30%,
                 shade(**base11**, 0.95) 100%
             );
-            color: white;
+            color: **base01**;
         }
     }
 
@@ -1281,7 +1281,7 @@ star-image > image.non-starred:hover {
 
 .upgrade-banner-background {
     background: linear-gradient(to bottom, $green-light, $blue-light);
-    color: white;
+    color: **base01**;
 }
 
 .upgrade-buttons #button_upgrades_install,
